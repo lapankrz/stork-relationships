@@ -10,11 +10,14 @@ https://www.movebank.org/cms/webapp?gwt_fragment=page=studies,path=study76367850
 
 ## How to prepare data?
 1. Download data in .csv format by selecting on the page:
-<div style="text-align: center"> Download > Download Data </div>
-
+```
+Download > Download Data
+```
 
 2. Change name of the file to:
-<div style="text-align: center"> LifeTrackWhiteStorkRheinland-Pfalz.csv </div>
+```
+LifeTrackWhiteStorkRheinland-Pfalz.csv
+```
 
 
 
