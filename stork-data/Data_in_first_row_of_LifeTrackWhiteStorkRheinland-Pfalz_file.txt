@@ -1,0 +1,51 @@
+event-id                                                         773832935
+visible                                                               True
+timestamp                                          2015-06-13 18:00:06.000
+location-long                                                     8.180452
+location-lat                                                     49.210406
+acceleration-raw-x                                                     NaN
+acceleration-raw-y                                                     NaN
+acceleration-raw-z                                                     NaN
+bar:barometric-height                                                  NaN
+bar:barometric-pressure                                                NaN
+battery-charge-percent                                                 NaN
+battery-charging-current                                               NaN
+data-decoding-software                                                 NaN
+eobs:activity                                                          NaN
+eobs:activity-samples                                                  NaN
+eobs:battery-voltage                                                  4104
+eobs:fix-battery-voltage                                              4074
+eobs:horizontal-accuracy-estimate                                     6.14
+eobs:key-bin-checksum                                           3735123917
+eobs:speed-accuracy-estimate                                          0.33
+eobs:start-timestamp                               2015-06-13 18:00:00.000
+eobs:status                                                              A
+eobs:temperature                                                        25
+eobs:type-of-fix                                                         3
+eobs:used-time-to-get-fix                                                5
+external-temperature                                                   NaN
+gps:dop                                                                NaN
+gps:hdop                                                               NaN
+gps:satellite-count                                                    NaN
+gps-time-to-fix                                                        NaN
+ground-speed                                                           0.1
+heading                                                                0.0
+height-above-ellipsoid                                               187.4
+height-above-msl                                                       NaN
+import-marked-outlier                                                  NaN
+gls:light-level                                                        NaN
+mag:magnetic-field-raw-x                                               NaN
+mag:magnetic-field-raw-y                                               NaN
+mag:magnetic-field-raw-z                                               NaN
+manually-marked-outlier                                                NaN
+orientation:quaternion-raw-w                                           NaN
+orientation:quaternion-raw-x                                           NaN
+orientation:quaternion-raw-y                                           NaN
+orientation:quaternion-raw-z                                           NaN
+orn:transmission-protocol                                              NaN
+tag-voltage                                                            NaN
+sensor-type                                                            gps
+individual-taxon-canonical-name                            Ciconia ciconia
+tag-local-identifier                                                  4008
+individual-local-identifier                Andra + / DER AT202 (eobs 4008)
+study-name                           LifeTrack White Stork Rheinland-Pfalz
