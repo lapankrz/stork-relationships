@@ -9,16 +9,24 @@ https://www.movebank.org/cms/webapp?gwt_fragment=page=studies,path=study76367850
 
 
 ## How to prepare data?
-1. Download data in .csv format by selecting on the page:
+1. Download gps data in .csv format by selecting on the page:
 ```
 Download > Download Data
 ```
+**PROTIP**: Select only data from GPS sensors. Data from other sensors, such as magnetometer or accelerometer, will not be useful for the task, so they are not downloaded.
 
 2. Change name of the file to:
 ```
 LifeTrackWhiteStorkRheinland-Pfalz.csv
 ```
 
+3. Download reference data in .csv format by selecting on the page:
+```
+Download > Download Reference Data
+```
 
+4. Change name of the file to:
+```
+LifeTrackWhiteStorkRheinland-Pfalz-reference-data.csv
+```
 
-**PROTIP**: Select only data from GPS sensors. Data from other sensors, such as magnetometer or accelerometer, will not be useful for the task, so they are not downloaded.

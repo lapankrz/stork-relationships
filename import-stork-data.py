@@ -1,27 +1,37 @@
 import pandas
 
-# csv file with stork data should be saved in "stork-data" directory
+# csv file with stork reference data should be saved in "stork-data" directory
+# and named "LifeTrackWhiteStorkRheinland-Pfalz-reference-data.csv"
+reference_data_filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz-reference-data.csv"
+
+# reading csv file with reference data
+ref_df = pandas.read_csv(reference_data_filename)
+
+# Print first row of reference data as example
+print("REFERENCE DATA EXAMPLE:")
+print(ref_df.iloc[0], "\n")
+
+
+# csv file with stork gps data should be saved in "stork-data" directory
 # and named "LifeTrackWhiteStorkRheinland-Pfalz.csv"
-filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv"
+gps_data_filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv"
 
-# number of records in file (excludes header)
-n = sum(1 for line in open(filename)) - 1 # n = 7887758
+# number of records in gps data file (excludes header)
+n = sum(1 for line in open(gps_data_filename)) - 1  # n = 7887758
 
-# desired sample size
-sampleSize = 1000
+# desired sample size of gps data
+sample_size = 1000
 
 # column names that we want to load from the csv file
-colNames = ['event-id',
+col_names = ['event-id',
             'timestamp',
             'location-long',
             'location-lat',
-            'height-above-ellipsoid',
-            'individual-taxon-canonical-name',
             'tag-local-identifier']
 
-# reading csv file
-df = pandas.read_csv(filename, nrows=sampleSize, usecols=colNames)
+# reading csv file with gps data
+gps_df = pandas.read_csv(gps_data_filename, nrows=sample_size, usecols=col_names)
 
 # Print first row as example
-print(df.iloc[0])
-
+print("GPS DATA EXAMPLE:")
+print(gps_df.iloc[0])
