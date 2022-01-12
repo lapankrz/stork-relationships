@@ -4,6 +4,7 @@ from pyproj import Proj
 lat = [49.4538163,49.1893459,48.0996548,49.2103917,47.7683835]
 long = [7.5293362,8.3806152,7.3811118,8.1805128,9.2178378]
 
+# https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=download - raster data
 tif = rio.open('landuse.tif', crs='epsg:3035')
 band_id = 1
 land_use = tif.read(band_id)
@@ -15,6 +16,7 @@ def convert_coords_to_xy(latitude, longitude):
     py_pc = (tif.bounds.top - py) / (tif.bounds.top - tif.bounds.bottom)
     return (round(px_pc * tif.width), round(py_pc * tif.height))
 
+# http://clc.gios.gov.pl/doc/clc/CLC_Legend_EN.pdf - "Grid_Code" column
 def get_land_use_category(id):
     category = 'N/A'
     if id in range(1,12):
