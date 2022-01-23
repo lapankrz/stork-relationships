@@ -8,7 +8,7 @@ import networkx as nx
 from LandUse import LandUse
 import os.path
 
-if not os.path.isfile('pajek/storks2.net'):
+if not os.path.isfile('pajek/storks.net'):
     # csv file with stork gps data should be saved in "stork-data" directory
     # and named "LifeTrackWhiteStorkRheinland-Pfalz.csv"
     gps_data_filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv"
@@ -119,7 +119,7 @@ else:
             weight = weights[(i, closest_node, 0)]
             H.add_edge(i, closest_node, weight=weight, inv=1 / weight)
     G = H
-    nx.write_pajek(G, "storks2_closest.net")
+    nx.write_pajek(G, "pajek/storks_closest.net")
 
 pos = nx.spring_layout(G, iterations=150, weight='inv')
 labels = dict([((u, v,), f"{d['weight']:.2f}") for u, v, d in G.edges(data=True)])
