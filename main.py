@@ -8,7 +8,7 @@ import networkx as nx
 from LandUse import LandUse
 import os.path
 
-if not os.path.isfile('pajek/storks.net'):
+if not os.path.isfile('pajek/storks2.net'):
     # csv file with stork gps data should be saved in "stork-data" directory
     # and named "LifeTrackWhiteStorkRheinland-Pfalz.csv"
     gps_data_filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv"
@@ -69,12 +69,19 @@ if not os.path.isfile('pajek/storks.net'):
 
     # creating the graph of stork relationships
     G = nx.Graph()
+    land_use = LandUse()
     for id in stork_ids:
         rows = gps_df.loc[gps_df["individual-local-identifier"] == id].dropna(subset = ['location-long','location-lat'])
-        lat = rows['location-lat'].mean()
-        long = rows['location-long'].mean()
-        land_use = LandUse()
-        use = land_use.get_land_use(lat, long)
+        uses = []
+        for index, r in rows.iterrows():
+            lat = r['location-lat']
+            long = r['location-long']
+            use = land_use.get_land_use(lat, long)
+            uses.append(use)
+        try:
+            use = max(set(uses), key = uses.count)
+        except:
+            use = 'N/A'
         color = land_use.get_land_use_color(use)
         G.add_node(id, land_use=use, color=color)
 
@@ -110,6 +117,7 @@ else:
             weight = weights[(i, closest_node, 0)]
             H.add_edge(i, closest_node, weight=weight, inv=1/weight)
     G = H
+    nx.write_pajek(G, "storks2_closest.net")
 
 pos = nx.spring_layout(G, iterations=150, weight='inv')
 labels = dict([((u,v,), f"{d['weight']:.2f}") for u,v,d in G.edges(data=True)])

@@ -1,37 +1,37 @@
 *vertices 33
-1 "SÜWE IV + / DER AW355 (e-obs 4347)" 0.0 0.0 ellipse land_use "farm field" color gold
+1 "SÜWE IV + / DER AW355 (e-obs 4347)" 0.0 0.0 ellipse land_use forest color forestgreen
 2 "Bonsai / DER AX471 (e-obs 4349)" 0.0 0.0 ellipse land_use urban color brown
-3 "Marieta + / DER AX383 (eobs4353)" 0.0 0.0 ellipse land_use forest color forestgreen
-4 "Odysseus / DER AT248 (eobs 4354)" 0.0 0.0 ellipse land_use forest color forestgreen
+3 "Marieta + / DER AX383 (eobs4353)" 0.0 0.0 ellipse land_use "farm field" color gold
+4 "Odysseus / DER AT248 (eobs 4354)" 0.0 0.0 ellipse land_use pasture color yellowgreen
 5 "Hyazinth + / DER AW377 (e-obs4355)" 0.0 0.0 ellipse land_use urban color brown
 6 "The Rose + / DER AW244 (eobs 4359)" 0.0 0.0 ellipse land_use forest color forestgreen
 7 "Adebar / DER AX142 (eobs 4360)" 0.0 0.0 ellipse land_use "farm field" color gold
 8 "Neupotz / DER AW533 (e-obs 4362)" 0.0 0.0 ellipse land_use forest color forestgreen
-9 "Enaitsirhc / DER AN444 (eobs 4363)" 0.0 0.0 ellipse land_use urban color brown
-10 "Nimrip / DER AN443 (eobs 4364)" 0.0 0.0 ellipse land_use forest color forestgreen
+9 "Enaitsirhc / DER AN444 (eobs 4363)" 0.0 0.0 ellipse land_use pasture color yellowgreen
+10 "Nimrip / DER AN443 (eobs 4364)" 0.0 0.0 ellipse land_use "farm field" color gold
 11 "Jessica + / DER AV744 (eobs 4366)" 0.0 0.0 ellipse land_use N/A color white
 12 "Rudi + / DER AX145 (eobs 4986)" 0.0 0.0 ellipse land_use "farm field" color gold
-13 "Vitus + / DER AW375 (e-obs4983)" 0.0 0.0 ellipse land_use "farm field" color gold
-14 "Borni II + / DER AX351 (eobs 3076)" 0.0 0.0 ellipse land_use urban color brown
-15 "Fred + / DER AW532 (e-obs 3041)" 0.0 0.0 ellipse land_use water color royalblue
+13 "Vitus + / DER AW375 (e-obs4983)" 0.0 0.0 ellipse land_use urban color brown
+14 "Borni II + / DER AX351 (eobs 3076)" 0.0 0.0 ellipse land_use "farm field" color gold
+15 "Fred + / DER AW532 (e-obs 3041)" 0.0 0.0 ellipse land_use forest color forestgreen
 16 "Maxi + / DER AX688 (eobs 5524)" 0.0 0.0 ellipse land_use N/A color white
-17 "Jockel + / DER AX274 (eobs 5527)" 0.0 0.0 ellipse land_use urban color brown
+17 "Jockel + / DER AX274 (eobs 5527)" 0.0 0.0 ellipse land_use pasture color yellowgreen
 18 "Hartwig + / DER A1P19 (e-obs 5526)" 0.0 0.0 ellipse land_use "farm field" color gold
-19 "Nicole + / DER AX555 (eobs 3020)" 0.0 0.0 ellipse land_use "farm field" color gold
+19 "Nicole + / DER AX555 (eobs 3020)" 0.0 0.0 ellipse land_use urban color brown
 20 "Duttweiler + / DER A1P20 (e-obs 6381)" 0.0 0.0 ellipse land_use "farm field" color gold
 21 "Teamy / AT771 (eobs 6381)" 0.0 0.0 ellipse land_use pasture color yellowgreen
-22 "Twix +/ DER AW357 (e-obs 6378)" 0.0 0.0 ellipse land_use "farm field" color gold
-23 "Ruby / DER A1P75 (e-obs 6383)" 0.0 0.0 ellipse land_use pasture color yellowgreen
-24 "Olli / DER A1P74 (e-obs 6382)" 0.0 0.0 ellipse land_use forest color forestgreen
+22 "Twix +/ DER AW357 (e-obs 6378)" 0.0 0.0 ellipse land_use forest color forestgreen
+23 "Ruby / DER A1P75 (e-obs 6383)" 0.0 0.0 ellipse land_use urban color brown
+24 "Olli / DER A1P74 (e-obs 6382)" 0.0 0.0 ellipse land_use urban color brown
 25 "Franco + / DER A1R27 (e-obs 6384)" 0.0 0.0 ellipse land_use pasture color yellowgreen
 26 "Otti + / DER AW272 (e-obs 6380)" 0.0 0.0 ellipse land_use urban color brown
 27 "Hans / DER A1R26 (e-obs 6385)" 0.0 0.0 ellipse land_use pasture color yellowgreen
-28 "SoWeiWa + / DER AW356 (e-obs 6377)" 0.0 0.0 ellipse land_use "farm field" color gold
+28 "SoWeiWa + / DER AW356 (e-obs 6377)" 0.0 0.0 ellipse land_use forest color forestgreen
 29 "Elly + / DER AW271 (e-obs 6379)" 0.0 0.0 ellipse land_use urban color brown
 30 "Mogli / DER AW534 (e-obs 6386)" 0.0 0.0 ellipse land_use forest color forestgreen
 31 "Gerd + / AW374 (e-obs 5944)" 0.0 0.0 ellipse land_use urban color brown
 32 "Kalif + / DER AW273 (e-obs 5945)" 0.0 0.0 ellipse land_use urban color brown
-33 "Maxime + / AW450 (eobs 6593)" 0.0 0.0 ellipse land_use "farm field" color gold
+33 "Maxime + / AW450 (eobs 6593)" 0.0 0.0 ellipse land_use urban color brown
 *edges
 1 2 6.244622137238971
 1 3 20.11730450250812
