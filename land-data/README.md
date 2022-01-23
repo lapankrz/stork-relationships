@@ -23,5 +23,5 @@ landuse.tif
 ```
 
 
-Raster map opened in QGIS with loaded legend:
+Raster map opened in QGIS with loaded legend:<br>
 ![Raster map in QGIS](Raster_map_with_legend.png)
