@@ -2,3 +2,4 @@
 stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv
 stork-data/LifeTrackWhiteStorkRheinland-Pfalz-reference-data.csv
 __pycache__/
+/land-data/landuse.tif
