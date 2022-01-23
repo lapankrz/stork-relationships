@@ -98,11 +98,11 @@ if not os.path.isfile('pajek/storks.net'):
                     print("\t" + stork_ids[j] + ": " + "{:.2f}".format(dist) + " km")
 
     # graph visualisation and exporting to Pajek
-    nx.write_pajek(G, "storks2.net")
+    nx.write_pajek(G, "storks.net")
 else:
-    G = nx.read_pajek("pajek/storks.net")
+    G = nx.read_pajek("pajek/storks2.net")
     weights = nx.get_edge_attributes(G, 'weight')
-    H = nx.DiGraph()
+    H = nx.MultiDiGraph()
     colors = nx.get_node_attributes(G, 'color')
     for i in G.nodes:
         H.add_node(i, color=colors[i])
@@ -118,9 +118,9 @@ else:
         if closest_node != -1 and min_dist < 1000:
             weight = weights[(i, closest_node, 0)]
             H.add_edge(i, closest_node, weight=weight, inv=1 / weight)
-    G = H
-    nx.write_pajek(G, "pajek/storks_closest.net")
+    nx.write_pajek(H, "pajek/storks2_closest.net")
 
+G = H  # comment if you want to display the full graph
 pos = nx.spring_layout(G, iterations=150, weight='inv')
 labels = dict([((u, v,), f"{d['weight']:.2f}") for u, v, d in G.edges(data=True)])
 colors = nx.get_node_attributes(G, 'color').values()
