@@ -1,3 +1,4 @@
 .idea/
 stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv
 stork-data/LifeTrackWhiteStorkRheinland-Pfalz-reference-data.csv
+__pycache__/

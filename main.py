@@ -14,11 +14,11 @@ if not os.path.isfile('pajek/storks2.net'):
     gps_data_filename = "stork-data/LifeTrackWhiteStorkRheinland-Pfalz.csv"
 
     col_names = ['event-id',
-                'timestamp',
-                'location-long',
-                'location-lat',
-                'individual-local-identifier',
-                'tag-local-identifier']
+                 'timestamp',
+                 'location-long',
+                 'location-lat',
+                 'individual-local-identifier',
+                 'tag-local-identifier']
 
     # reading csv file with gps data
     gps_df = pd.read_csv(gps_data_filename, usecols=col_names)
@@ -32,10 +32,10 @@ if not os.path.isfile('pajek/storks2.net'):
         mask = (gps_df["timestamp"] >= datetime(year, 5, 1)) & (gps_df["timestamp"] <= datetime(year, 7, 31))
         rows = gps_df.loc[mask]
         stork_count = len(rows["individual-local-identifier"].unique())
-        if (stork_count > max_storks):
+        if stork_count > max_storks:
             max_storks = stork_count
             max_year = year
-        print(str(year) + ": " + str(stork_count)) #the most (33) in 2018 and 2019
+        print(str(year) + ": " + str(stork_count))  # the most (33) in 2018 and 2019
 
     # taking only the events from the most active year
     mask = (gps_df["timestamp"] >= datetime(max_year, 5, 1)) & (gps_df["timestamp"] <= datetime(max_year, 7, 31))
@@ -50,8 +50,10 @@ if not os.path.isfile('pajek/storks2.net'):
         for j in range(max_storks):
             id_1 = stork_ids[i]
             id_2 = stork_ids[j]
-            rows_1 = gps_df.loc[gps_df["individual-local-identifier"] == id_1].dropna(subset = ['location-long','location-lat'])
-            rows_2 = gps_df.loc[gps_df["individual-local-identifier"] == id_2].dropna(subset = ['location-long','location-lat'])
+            rows_1 = gps_df.loc[gps_df["individual-local-identifier"] == id_1].dropna(
+                subset=['location-long', 'location-lat'])
+            rows_2 = gps_df.loc[gps_df["individual-local-identifier"] == id_2].dropna(
+                subset=['location-long', 'location-lat'])
             joined = pd.merge(rows_1, rows_2, on='timestamp', how='inner')
             distance = 0
             n = 0
@@ -59,19 +61,19 @@ if not os.path.isfile('pajek/storks2.net'):
                 coords_1 = (row["location-lat_x"], row["location-long_x"])
                 coords_2 = (row["location-lat_y"], row["location-long_y"])
                 dist = great_circle(coords_1, coords_2).km
-                distance += dist**2
+                distance += dist ** 2
                 n += 1
             if n > 0:
                 distance /= n
-                distances[i,j] = distances[j,i] = distance
+                distances[i, j] = distances[j, i] = distance
             else:
-                distances[i,j] = distances[j,i] = -1
+                distances[i, j] = distances[j, i] = -1
 
     # creating the graph of stork relationships
     G = nx.Graph()
     land_use = LandUse()
     for id in stork_ids:
-        rows = gps_df.loc[gps_df["individual-local-identifier"] == id].dropna(subset = ['location-long','location-lat'])
+        rows = gps_df.loc[gps_df["individual-local-identifier"] == id].dropna(subset=['location-long', 'location-lat'])
         uses = []
         for index, r in rows.iterrows():
             lat = r['location-lat']
@@ -79,7 +81,7 @@ if not os.path.isfile('pajek/storks2.net'):
             use = land_use.get_land_use(lat, long)
             uses.append(use)
         try:
-            use = max(set(uses), key = uses.count)
+            use = max(set(uses), key=uses.count)
         except:
             use = 'N/A'
         color = land_use.get_land_use_color(use)
@@ -90,8 +92,8 @@ if not os.path.isfile('pajek/storks2.net'):
         print("Distance to " + stork_ids[i] + ": ")
         for j in range(max_storks):
             if i != j:
-                dist = distances[i,j]
-                if (dist > 0):
+                dist = distances[i, j]
+                if dist > 0:
                     G.add_edge(stork_ids[i], stork_ids[j], weight=dist)
                     print("\t" + stork_ids[j] + ": " + "{:.2f}".format(dist) + " km")
 
@@ -99,9 +101,9 @@ if not os.path.isfile('pajek/storks2.net'):
     nx.write_pajek(G, "storks2.net")
 else:
     G = nx.read_pajek("pajek/storks.net")
-    weights = nx.get_edge_attributes(G,'weight')
+    weights = nx.get_edge_attributes(G, 'weight')
     H = nx.DiGraph()
-    colors = nx.get_node_attributes(G,'color')
+    colors = nx.get_node_attributes(G, 'color')
     for i in G.nodes:
         H.add_node(i, color=colors[i])
         closest_node = -1
@@ -115,13 +117,13 @@ else:
                     closest_node = j
         if closest_node != -1 and min_dist < 1000:
             weight = weights[(i, closest_node, 0)]
-            H.add_edge(i, closest_node, weight=weight, inv=1/weight)
+            H.add_edge(i, closest_node, weight=weight, inv=1 / weight)
     G = H
     nx.write_pajek(G, "storks2_closest.net")
 
 pos = nx.spring_layout(G, iterations=150, weight='inv')
-labels = dict([((u,v,), f"{d['weight']:.2f}") for u,v,d in G.edges(data=True)])
-colors = nx.get_node_attributes(G,'color').values()
+labels = dict([((u, v,), f"{d['weight']:.2f}") for u, v, d in G.edges(data=True)])
+colors = nx.get_node_attributes(G, 'color').values()
 nx.draw(G, pos, node_color=colors)
 nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
 plt.show()
